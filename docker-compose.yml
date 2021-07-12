@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  db:
+    build: Docker/Database
+    ports:
+      - "3306:3306"
+    links:
+      - php
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+  php:
+    build: Docker/PHP
+    ports:
+      - "127.0.0.1:8080:80"
+      - "127.0.0.1:443:443"
+    volumes:
+      - ./:/var/www/html
