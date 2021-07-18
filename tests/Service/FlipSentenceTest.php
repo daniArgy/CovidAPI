@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class FlipSentenceTest extends TestCase
 {
 
-    public function test__invoke()
+    public function testInvokeWithoutParams()
     {
         $this->expectError();
         $flipSentence = new FlipSentence();
